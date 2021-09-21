@@ -12,24 +12,23 @@ VAR
    i:INTEGER:=0;
   
 BEGIN
-WHILE (phrase <> point) DO
-        i=i+1;
-    FOR i FROM phrase[0] TO long(phrase) DO
-     //The length of the sentence (the number of characters)
-     count_characters:= long(phrase);
-     lire (count_characters);
-     //The number of words in the sentence (assuming that the words are separated by a single space)
-     IF (phrase[i] = " ") THEN
-     count_space:= count_space +1;
-     count_words:= phrase[i] - count_space;
-     lire (count_words);
-     END_IF
-    //The number of vowels in the sentence
-      IF (phrase[i] = "a" || phrase[i] = "e" || phrase[i] = "i"|| phrase[i] = "o" || phrase[i] = "u" || phrase[i] = "y") THEN
-      count_vowels:= count_vowels +1;
-      lire (count_vowels);
-      END_IF
-    END_FOR
-END_WHILE
-
+FOR i FROM phrase[0] TO long(phrase) DO
+    i=i+1; 
+    //The length of the sentence (the number of characters)
+    count_characters:= long(phrase);
+    lire (count_characters);
+    WHILE (phrase <> point) DO
+        //The number of words in the sentence (assuming that the words are separated by a single space)
+        IF (phrase[i] = " ") THEN
+            count_space:= count_space +1;
+        END_IF
+        count_words:= phrase[i] - count_space;
+        lire (count_words);
+        //The number of vowels in the sentence
+        IF (phrase[i] = "a" || phrase[i] = "e" || phrase[i] = "i"|| phrase[i] = "o" || phrase[i] = "u" || phrase[i] = "y") THEN
+            count_vowels:= count_vowels +1;
+        END_IF  
+        lire (count_vowels);
+    END_WHILE
+END_FOR
 END
